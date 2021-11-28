@@ -4,18 +4,22 @@ from PIL import Image, ImageFilter
 import imageio
 import scipy as sp
 import matplotlib.pyplot as plt
-import visvis as vv
-import cv2 as cv
+import cv2
 import part1 #Gabby, smooth_image and gradient_map
 #import part2.py #Chris, suppress_nommaxima, double_threshold
 
 
 #intake photo
 photopath = "./images/testimg.png"
-newphotopath = photopath[:-4]+"_greyscale"+photopath[-4:]
-init_img = Image.open(photopath).convert('L')
-init_img.save(newphotopath)
-img = imageio.imread(newphotopath) #This is the initial greyscaled image
+if not ("_greyscale" in photopath):
+    newphotopath = photopath[:-4]+"_greyscale"+photopath[-4:]
+    init_img = Image.open(photopath).convert('L')
+    init_img.save(newphotopath)
+    img = Image.open(newphotopath) #This is the initial greyscaled image
+else:
+    img = Image.open(photopath)
+
+
 
 part1 = gradient_magnitude(smooth_image(img))
 

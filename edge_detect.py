@@ -1,19 +1,18 @@
 #libraries
 import numpy as np
 from PIL import Image
-import imageio
 import scipy as sp
 import matplotlib as plt
 import part1.py #Gabby, smooth_image and gradient_map
 import part2.py #Chris, suppress_nommaxima, double_threshold
 #intake photo
 photopath = "path/to/photo"
-newphotopath = photopath[:-4]+"_greyscale"+a[-4:]
+newphotopath = photopath[:-4]+"_greyscale"+photopath[-4:]
 init_img = Image.open(photopath).convert('L')
 init_img.save(newphotopath)
-img = imageio.imread(newphotopath) #This is the initial greyscaled image
+img = Image.open(newphotopath) #This is the initial greyscaled image
 
-def smooth_image(photo):  
+def smooth_image(photo):
 #Smooth image with Gaussian filter (using built-in fn
 
 

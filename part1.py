@@ -32,4 +32,4 @@ def gradient_magnitude(blurred_photo):
         plt.xticks([])
         plt.yticks([])
     
-    return Gradient_Image
+    return results, Gradient_Image
